@@ -1,0 +1,1 @@
+chrome.runtime.onMessage.addListener((o,i,t)=>{if(console.log("Content script received message:",o),o.type==="GET_SELECTION"){const e=window.getSelection(),n=e?e.toString().replace(/\s+/g," ").trim():"";console.log("Sending selection:",n),t(n)}if(o.type==="CLEAR_SELECTION"){const e=window.getSelection();e&&e.removeAllRanges(),t({ok:!0})}});console.log("Content script loaded");
